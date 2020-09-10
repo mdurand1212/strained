@@ -1,0 +1,84 @@
+#!/usr/bin/perl 
+use strict;
+use warnings;
+
+# Get name and print welcome message.
+printf("Enter your name: ");
+my $name = <STDIN>;
+chomp $name;
+print "Welcome to buds land $name!\n";
+
+# Get date
+printf("Date mm/dd/yr: ");
+my $date = <STDIN>;
+$date =~ s/\s+\z//;                    #remove trailing newlines
+
+# Get dispensary
+printf("Dispensary: ");
+my $dispensary = <STDIN>;
+$dispensary =~ s/\s+\z//;                    #remove trailing newlines
+
+# Get strain 
+printf("STRAIN: ");
+my $strain = <STDIN>;
+$strain =~ s/\s+\z//;                    #remove trailing newlines
+
+# Indica or Sativa or Hybrid
+print("Phenotype: ");
+my $phenotype = <STDIN>;
+$phenotype =~ s/\s+\z//;                    #remove trailing newlines
+
+# Get total weight
+print("WEIGHT( in grams): ");
+my $weight = <STDIN>;
+$weight =~ s/\s+\z//;                    #remove trailing newlines
+
+# Get price in dollars
+print("COST( in dollars ): ");
+my $cost = <STDIN>;
+$cost =~ s/\s+\z//;                    #remove trailing newlines
+
+# Get Shelf
+print("Which SHELF: ");
+my $shelf = <STDIN>;
+$shelf =~ s/\s+\z//;                    #remove trailing newlines
+
+
+# Get appearence 
+print("APPEARENCE: ");
+my $appearence = <STDIN>;
+$appearence =~ s/\s+\z//;                    #remove trailing newlines
+
+# Get touch
+print("How does it feel: " );
+my $touch = <STDIN>;
+$touch =~ s/\s+\z//;                    #remove trailing newlines
+
+# Get smell
+print("Smell: ");
+my $smell = <STDIN>;
+$smell =~ s/\s+\z//;                    #remove trailing newlines
+
+
+# Get rating 1 - 10
+print("Quality rating ( 1-10 ): ");
+my $rating = <STDIN>;
+$rating =~ s/\s+\z//;                    #remove trailing newlines
+
+# Get a general description
+print("General DESCRIPTION: ");
+my $description = <STDIN>;
+$description =~ s/\s+\z//;                    #remove trailing newlines
+
+# print data to file
+my $text = sprintf("%-10s%-15s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n", $name, $date, $dispensary,       $strain, $phenotype, $weight, $cost, $shelf, $appearence, $touch, $smell, $rating, $description);
+
+# declare filename 
+my $filename = 'strain_reports_v2.txt';
+
+# Store in a file
+open(my $fh, '>>', $filename) or die "Could not open file '$filename' $!";
+
+# write to file 
+printf $fh $text;
+
