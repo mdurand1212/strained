@@ -73,6 +73,15 @@ $description =~ s/\s+\z//;                    #remove trailing newlines
 # print data to file
 my $text = sprintf("%-10s%-15s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n", $name, $date, $dispensary,       $strain, $phenotype, $weight, $cost, $shelf, $appearence, $touch, $smell, $rating, $description);
 
+if !filename().exists
+{
+	print "file exists";
+} 
+else
+{
+	print "file doesnt exist";
+}
+
 # declare filename 
 my $filename = 'strain_reports_v2.txt';
 
